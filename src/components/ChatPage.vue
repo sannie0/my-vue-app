@@ -1,0 +1,57 @@
+<template>
+    <div class="chat-window">
+      <div class="chat-messages" ref="chatMessages">
+        <!-- Отображение сообщений -->
+        <div v-for="message in messages" :key="message.id" class="message">{{ message.text }}</div>
+      </div>
+      <div class="chat-input">
+  
+        <input class="custom-input" type="text" v-model="newMessage" placeholder="Введите сообщение...">
+  
+        <button class="custom-button" @click="sendMessage">Отправить</button>
+      </div>
+    </div>
+  </template>
+  
+  
+  <script>
+ // import { connection } from '../main';
+
+  export default {
+  data() {
+    return {
+      newMessage: '',
+    };
+  },
+  methods: {
+    async sendMessage() {
+      try {
+        const connection = this.$signalRConnection;
+
+        if (this.newMessage.trim() !== '' && connection) {
+          await connection.invoke("SendMessages", { content: this.newMessage});
+          this.newMessage = '';
+        } else {
+          alert('Введите сообщение!');
+        }
+      } catch (error) {
+        console.error(error.toString());
+      }
+    },
+  },
+};
+          /*await connection.send('SendMessage', 'UserName', 'UserId', this.newMessage);
+          
+          this.messages.push({ id: this.messages.length + 1, text: this.newMessage });
+  
+          this.newMessage = '';
+          
+          this.scrollToBottom();
+        } catch (error) {
+          console.error('Ошибка отправки сообщения:', error);
+        }
+      },
+      scrollToBottom() {
+        this.$refs.chatWindow.scrollTop = this.$refs.chatMessages.scrollHeight;
+      }*/
+  </script>
