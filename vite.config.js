@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 //const HOST = "0.0.0.0";
-const backend = "http//localhost:7115";
+const backend = "https://localhost:7115";
 //const scrPath = fileURLToPath(new URL("./src", import.meta.url))
 
 // https://vitejs.dev/config/

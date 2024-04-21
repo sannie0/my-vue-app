@@ -17,8 +17,12 @@ const router = createRouter({
     ]
 })
 
+const app = createApp(App);
+app.use(router).mount('#app');
+
+
 function connectSignalR() {
-    const connection = new HubConnectionBuilder().withUrl("http://localhost:5173/Hub").build();//http://localhost:7115
+    const connection = new HubConnectionBuilder().withUrl("/hub").build();//http://localhost:7115
     
     connection.start()
       .then(() => {
@@ -28,7 +32,7 @@ function connectSignalR() {
       .catch(error => console.error("Error connecting to SignalR:", error));
   }
 
-createApp(App).use(router).mount('#app');
+
 //app.use(router).mount('#app');
 
 connectSignalR();

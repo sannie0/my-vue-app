@@ -8,7 +8,7 @@
         <input id="password" type="password" v-model="password" placeholder="Введите пароль" class="custom-input">
       </div>
     <div>
-      
+      <br><router-link style="color: #7d49d1;" to="/">Зарегистрироваться</router-link>
     </div><br>
       <button @mouseover="isHovered = true" @mouseleave="isHovered = false" class="custom-button">Войти</button>
     </form>

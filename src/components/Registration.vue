@@ -8,6 +8,7 @@
       <input id="password" type="password" v-model="password" placeholder="Введите пароль" class="custom-input">
     </div>
     <div>
+     <br><router-link style="color: #7d49d1;" to="/login">Авторизация</router-link>
     </div><br>
     <button @mouseover="isHovered = true" @mouseleave="isHovered = false" class="custom-button">Зарегистрироваться</button>
   </form>
@@ -17,6 +18,7 @@
 import { defineComponent, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { RegisterUser } from '../api.js';
+import Login from './Login.vue';
 
 export default defineComponent({
   setup() {
