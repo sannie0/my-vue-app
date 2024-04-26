@@ -30,9 +30,10 @@ export default defineComponent({
     const submitForm = async (userName, password) => {
       try {
         const response = await RegisterUser(userName, password);
+        localStorage.setItem('username', userName.value);
         router.push('/login');
       } catch (error) {
-        alert('Пользователь не зарегистрирован!');
+        alert('Пользователь с таким именем уже зарегистрирован!');
         console.error(error);
         console.error('Пользователь не зарегистрирован!');
       }
@@ -184,11 +185,11 @@ button:focus-visible {
 }
 
 .message {
-  padding: 5px;
-  margin-bottom: 5px;
+  padding: 20px;
+  font-size: 20pt;
+  margin-bottom: 10px;
   border-radius: 10px;
-
-  background-color: transparent;
+  color: #1a1a1a;
 }
 
 .input-field {

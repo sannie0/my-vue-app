@@ -28,7 +28,11 @@
       const submitForm = async () => {
         try {
           const response = await LoginUser(userName.value, password.value);
+          localStorage.setItem('username', userName.value);
           console.log('Пользователь успешно зашел в систему', response.data);
+          const [token, userId] = response.data.split(' ');
+          localStorage.setItem('user_id', userId);
+          console.log('Пользователь успешно зашел в систему', userId);
           router.push('/chat');
         } catch (error) {
           router.push('/login');

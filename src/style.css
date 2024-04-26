@@ -111,34 +111,11 @@ button:focus-visible {
   height: 300px;
   overflow-y: auto;
 }
-.message {
-  margin-bottom: 10px;
-}
 
 .input-a{
   color: #7d49d1; 
 }
 
-.chat-input{}
-
-.chat-window {
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-}
-
-.chat-messages {
-  flex: 1;
-  overflow-y: auto; /* включение вертикальной прокрутки */
-}
-
-.message {
-  padding: 5px;
-  margin-bottom: 5px;
-  border-radius: 10px;
-
-  background-color: transparent;
-}
 
 .input-field {
   flex: 1;
@@ -156,3 +133,4 @@ button:focus-visible {
   border-radius: 20px;
   cursor: pointer;
 }
+

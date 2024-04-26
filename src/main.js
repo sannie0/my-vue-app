@@ -5,7 +5,9 @@ import Registration from './components/Registration.vue';
 import ChatPage from './components/ChatPage.vue';
 import Login from './components/Login.vue';
 import { HubConnectionBuilder } from '@microsoft/signalr';
+import { VueSignalR } from "@dreamonkey/vue-signalr";
 
+const connection = new HubConnectionBuilder().withUrl("/hub").build();//http://localhost:7115
 
 const router = createRouter({
     history: createWebHistory(),
@@ -16,7 +18,6 @@ const router = createRouter({
         {path: '/login', name: 'login', component: Login}
     ]
 })
-
 const app = createApp(App);
 app.use(router).mount('#app');
 
@@ -32,12 +33,18 @@ function connectSignalR() {
       .catch(error => console.error("Error connecting to SignalR:", error));
   }
 
-
+connectSignalR();
 //app.use(router).mount('#app');
 
 connectSignalR();
+
+/*
+const app = createApp(App);
+app.use(VueSignalR, { connection }).use(router).mount('#app', {signalRConnection: connection});
+
+//app.use(router).mount('#app');
 //createApp(App).use(router).mount('#app');
 
 
 
-//5173
+//5173*/

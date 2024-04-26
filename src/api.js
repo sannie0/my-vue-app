@@ -46,3 +46,12 @@ export const LoginUser = async (userName, password) => {
     throw error;
 }
 }
+
+export const AddMessage = async (content) =>{
+  try{
+    const response = await axios.post('https://localhost:7115/api/MessageConroller/AddMessage', null, {params:{content: content}});
+    return response;
+  }catch(error){
+    throw error;
+  }
+}
