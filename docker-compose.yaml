@@ -1,0 +1,11 @@
+services:
+  back:
+    image: web-api-demo
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "65165"
+  front:
+    image: frontend
+    ports:
+      -  "3000:3000"

@@ -5,7 +5,6 @@ import Registration from './components/Registration.vue';
 import ChatPage from './components/ChatPage.vue';
 import Login from './components/Login.vue';
 import { HubConnectionBuilder } from '@microsoft/signalr';
-import { VueSignalR } from "@dreamonkey/vue-signalr";
 
 const connection = new HubConnectionBuilder().withUrl("/hub").build();//http://localhost:7115
 
