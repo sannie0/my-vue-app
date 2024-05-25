@@ -18,7 +18,7 @@ export const RegisterUser = async (userName, password) => {
     throw new Error("Имя пользователя и пароль не могут быть пустыми.");
   }
   try {
-    const response = await axios.post('https://localhost:7115/api/User/RegisterUser', null, {
+    const response = await axios.post('/api/User/RegisterUser', null, {
       params: { username: userName, password: password }
     });
     /*const response = await axios.post('https://localhost:7115/api/User/RegisterUser', {
@@ -36,7 +36,7 @@ export const LoginUser = async (userName, password) => {
     throw new Error("Имя пользователя и пароль не могут быть пустыми.");
   }
   try{
-    const response = await axios.post('https://localhost:7115/api/User/LoginUser', null, { params: { username: userName, password: password } });
+    const response = await axios.post('/api/User/LoginUser', null, { params: { username: userName, password: password } });
     /*if (response.data === "Username already exist")
     {
         throw new Error("Username already exist");
@@ -49,7 +49,7 @@ export const LoginUser = async (userName, password) => {
 
 export const AddMessage = async (content) =>{
   try{
-    const response = await axios.post('https://localhost:7115/api/MessageConroller/AddMessage', null, {params:{content: content}});
+    const response = await axios.post('/api/MessageConroller/AddMessage', null, {params:{content: content}});
     return response;
   }catch(error){
     throw error;
